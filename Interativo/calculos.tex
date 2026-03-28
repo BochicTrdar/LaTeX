@@ -1,0 +1,329 @@
+\documentclass[12pt,a4paper]{article} 
+
+\renewcommand{\rmdefault}{ptm}   % Use Adobe Times
+
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{xtab}
+\usepackage{pifont}
+\usepackage{fancybox}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[latin1]{inputenc}
+\usepackage[portuges]{babel}
+\RequirePackage{hyperref}
+\hypersetup{
+            pdfpagemode=UseThumbs,
+            colorlinks=true,pdfhighlight=/P,linkbordercolor=1 1 1,
+	        linkcolor=black,citecolor=black
+	    } 
+
+\usepackage[pdftex]{insdljs} 
+
+\textwidth165mm
+\textheight245mm
+\oddsidemargin0mm
+\evensidemargin0mm
+
+\pagestyle{empty} 
+\topmargin-10mm
+
+\begin{insDLJS}[mysinus]{mysinus}{My Private sinus function}
+function mysinus()
+{
+    var output = this.getField("Output.fx");
+    output.value = Math.sin( Math.PI*x2.value/180 ) ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[myarcsinus]{myarcsinus}{My Private arcsinus function}
+function myarcsinus()
+{
+    var output = this.getField("Output.fx");
+    if ( Math.abs( x2.value ) > 1 ) 
+    { app.alert("O valor inserido é inválido!") }
+    output.value = Math.asin( x2.value )*180/Math.PI ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[mycosinus]{mycosinus}{My Private cosinus function}
+function mycosinus()
+{
+    var output = this.getField("Output.fx");
+    output.value = Math.cos( Math.PI*x2.value/180 ) ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[myarccosinus]{myarccosinus}{My Private arccosinus function}
+function myarccosinus()
+{
+    var output = this.getField("Output.fx");
+    if ( Math.abs( x2.value ) > 1 ) 
+    { app.alert("O valor inserido é inválido!") }
+    output.value = Math.acos( x2.value )*180/Math.PI ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[mytangens]{mytangens}{My Private tangens function}
+function mytangens()
+{
+    var output = this.getField("Output.fx");
+    output.value = Math.tan( Math.PI*x2.value/180 ) ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[myarctangens]{myarctangens}{My Private arctangens function}
+function myarctangens()
+{
+    var output = this.getField("Output.fx");
+    output.value = Math.atan( x2.value )*180/Math.PI ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[myexpx]{myexpx}{My Private exponential function}
+function myexpx()
+{
+    var output = this.getField("Output.fx");
+    output.value = Math.exp( x2.value ) ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[mylnx]{mylnx}{My Private logarithm function}
+function mylnx()
+{
+    var output = this.getField("Output.fx");
+    output.value = Math.log( x2.value ) ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[mysqrt]{mysqrt}{My Private square root function}
+function mysqrt()
+{
+    var output = this.getField("Output.fx");
+    output.value = Math.sqrt( x2.value ) ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[mysquare]{mysquare}{My Private square function}
+function mysquare()
+{
+    var output = this.getField("Output.fx");
+    output.value = x2.value*x2.value ;
+    output.value = Math.round( output.value*1e10 )/1e10 ;
+} 
+\end{insDLJS}
+
+\begin{insDLJS}[equadratica]{equadratica}{equadratica}
+function equadratica() 
+{ 
+var x1 = this.getField("Output.x1")
+var x2 = this.getField("Output.x2")
+var a = InputA.value  
+var b = InputB.value  
+var c = InputC.value  
+var d = b*b - 4*a*c ; 
+if ( a == 0 ) { 
+app.alert("O coeficiente a deve ser diferente de zero!")
+               } else {
+if ( d >= 0 ) { 	       
+x1.value = ( -b + Math.sqrt( d ) )/( 2*a ) ;
+x2.value = ( -b - Math.sqrt( d ) )/( 2*a ) ;
+             }	else { 
+app.alert("As raízes desta equação não são reais...")	      
+	              }
+	              }
+x1.value = Math.round( x1.value*1e10 )/1e10 ;
+x2.value = Math.round( x2.value*1e10 )/1e10 ;
+}
+\end{insDLJS}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Form}
+
+\section{Funções mais comuns}
+\hrule
+\vskip3mm
+\hrule
+\vskip5mm 
+\begin{center}
+Insira o valor de $x$ \\ 
+e clique nos botões para efectuar o respectivo cálculo:
+\end{center}
+\vskip15mm
+\begin{center}
+\begin{tabular}{ccc}
+$x$    & = & 
+\TextField[width=60mm,name=Input.x2,borderstyle=I,value={0},align=1,
+validate={x2=this.getField("Input.x2");}]{ } \\ 
+\ \\
+$f(x)$ & = &
+\TextField[width=60mm,name=Output.fx,borderstyle=I,value={0},align=1,
+validate={fx=this.getField("Output.fx");}]{ } 
+\end{tabular}\\
+\vspace{10mm}
+\begin{tabular}{ccc}
+\PushButton[name=sinx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={mysinus();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$\sin x_{}$
+\end{center}
+\end{minipage}
+} & \parbox{30mm}{} & 
+\PushButton[name=cosx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={mycosinus();}]
+{
+\begin{minipage}{30mm}
+\begin{center} 
+$\cos x_{}$
+\end{center}
+\end{minipage}
+} \\ 
+\ \\ 
+\PushButton[name=tanx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={mytangens();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$\tan x_{}$
+\end{center}
+\end{minipage}
+} & \ & \ \\ 
+\ \\
+\PushButton[name=arcsinx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={myarcsinus();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$\arcsin{x}$ 
+\end{center}
+\end{minipage}
+} & \parbox{30mm}{} & 
+\PushButton[name=arccosx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={myarccosinus();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$\arccos{x}$ 
+\end{center}
+\end{minipage}
+} \\ 
+\ \\
+\PushButton[name=arctanx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={myarctangens();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$\arctan{x}$ 
+\end{center}
+\end{minipage}
+} & \ & \ \\
+\ \\
+\PushButton[name=expx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={myexpx();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$e_{}^{x}$ 
+\end{center}
+\end{minipage}
+} & \parbox{30mm}{} & 
+\PushButton[name=lnx,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={mylnx();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$\ln x_{}$
+\end{center}
+\end{minipage}
+} \\ 
+\ \\
+\PushButton[name=sqrt,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={mysqrt();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$\sqrt{x_{}}$ 
+\end{center}
+\end{minipage}
+} & \parbox{30mm}{} & 
+\PushButton[name=square,color=0 0 1,bordercolor=0 0 0,borderstyle=B,borderwidth=1.5,onclick={mysquare();}]
+{
+\begin{minipage}{30mm}
+\begin{center}
+$x_{}^2$
+\end{center}
+\end{minipage}
+} \\ 
+\end{tabular}
+\end{center} 
+\vskip5mm  
+\hrule
+\vskip3mm
+\hrule
+
+\clearpage 
+
+\section{Raízes da equação quadrática}
+
+\hrule
+\vskip3mm
+\hrule
+\vskip5mm 
+\begin{center}
+Insira os valores de $a$, $b$ e $c$\\ 
+e clique no botão para calcular as raízes da equação quadrática:
+\end{center}
+\vskip15mm
+\begin{center}
+\shadowbox{
+\begin{tabular}{c}
+$ax^2 + bx + c = 0$ \\
+\ \\ 
+\ \\ 
+$x_{1,2} = \displaystyle{ \frac{-b\pm\sqrt{b^2-4ac}}{2a} }$
+\end{tabular}
+           }
+\end{center}
+\vskip10mm
+\begin{center}
+\begin{tabular}{ccc}
+$a$ = \TextField[width=30mm,name=InputA,borderstyle=I,value={},align=1,
+validate={InputA=this.getField("InputA");}]{ } & 
+$b$ = \TextField[width=30mm,name=InputB,borderstyle=I,value={},align=1,
+validate={InputB=this.getField("InputB");}]{ } & 
+$c$ = \TextField[width=30mm,name=InputC,borderstyle=I,value={},align=1,
+validate={InputC=this.getField("InputC");}]{ } 
+\ \\ 
+\ \\ 
+\ & 
+\PushButton[name=pbequadratica,borderstyle=B,borderwidth=1.5,onclick={equadratica();}]
+{\hskip2mm Mostrar as raizes\hskip2mm} & \ \\
+\ \\ 
+$x_1$ = \TextField[width=30mm,name=Output.x1,borderstyle=I,value={},align=1,
+validate={x1=this.getField("Output.x1");}]{ } \ & \ & 
+$x_2$ = \TextField[width=30mm,name=Output.x2,borderstyle=I,value={},align=1,
+validate={x2=this.getField("Output.x2");}]{ } 
+\end{tabular}
+\end{center}
+\vskip5mm  
+\hrule
+\vskip3mm
+\hrule
+
+\end{Form}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
