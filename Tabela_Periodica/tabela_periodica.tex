@@ -1,0 +1,37 @@
+% Tabela periódica dos Elementos
+\documentclass[12pt,a4paper,landscape]{article}
+
+\usepackage{xcolor}
+\usepackage{colortbl}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[latin1]{inputenc}
+\pagestyle{empty}
+
+\newcommand{\element}[3]{$\mathrel{\mathop{\makebox[9mm]{\Large\bf #1}}\limits_{#3}^{#2}}$}
+
+% Language specific:
+\newcommand{\tabletitle}{\Large \textbf{Tabela Periódica dos Elementos}}
+\newcommand{\tablegroup}{\textbf{Grupo}}
+\newcommand{\tablesymbol}{Símbolo}
+\newcommand{\tablemass}{Massa}
+\newcommand{\tableunits}{(u.m.a)}
+\newcommand{\tablelan}{\textbf{*Lantanídeos}}
+\newcommand{\tableact}{\textbf{**Actinídeos}}
+
+%Page setup: 
+
+\headsep-15mm 
+\textwidth280mm
+\textheight240mm
+\oddsidemargin-20mm
+\evensidemargin-20mm 
+
+\renewcommand{\rmdefault}{phv} % Make Helvetica the default font
+
+\begin{document}
+
+\setlength{\arrayrulewidth}{0.6mm}
+
+\input{elementos}
+
+\end{document}
