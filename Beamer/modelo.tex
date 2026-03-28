@@ -1,0 +1,94 @@
+% Written by Tordar
+
+\documentclass{beamer}
+
+\usepackage{graphicx}
+\usepackage[portuges]{babel}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[latin1]{inputenc}
+
+\renewcommand{\mathfamilydefault}{\rmdefault}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw} % Um de muitos temas...
+  \setbeamercovered{transparent}
+}
+
+
+\title[Beamer - \TeX2026] % 
+{Homus Beamericus\\ Dia 1 - Vive la {\TeX}berté!: }
+
+\subtitle{\LARGE HOMUS BEAMERICUS}
+
+\author[Orlando C. Rodríguez]{Orlando Camargo Rodríguez}
+
+\institute[Universidade do Algarve]
+{ \inst{}
+  Departamento de Física\\
+  Signal Processing Laboratory (SiPLAB)\\
+  Universidade do Algarve}
+
+\date[\TeX2025]{\today}
+
+\subject{Acústica Submarina}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Título do frame}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Primeira página}
+
+Uma lista numerada: 
+\begin{enumerate}
+\item<1-> Gu gu 
+\item<2-> Da da 
+\item<3-> E uma lista itemizada:
+\begin{itemize}
+\item<4-> La dona é mobile
+\item<5-> qual piuma al vento  
+\item<6-> la la la... 
+\end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Segunda página}
+
+Uma caixa para chamar a atenção de qualquer coisa: 
+\begin{block}{Uma caixa toda bonitinha}
+O beamer é o maior! (mas atenção àss dimensões das figuras, porque não se encontram a escala). 
+\begin{center}
+\includegraphics[height=50mm]{tiger}
+\end{center}
+\end{block}
+
+\end{frame}
+\begin{frame}
+
+\frametitle{Segunda página}
+
+Uma caixa para chamar a atenção de qualquer coisa: 
+\begin{block}{Outra caixa toda bonitinha}
+O beamer é o maior! 
+\begin{equation}
+\mathbf{F} = m \mathbf{a} 
+\end{equation}
+\end{block}
+
+\end{frame}
+\end{document}
